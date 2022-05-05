@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { APIResponse, Game } from 'src/app/models';
+import { APIResponse, Game, GameTrailer } from 'src/app/models';
 import { HttpService } from 'src/app/services/http.service';
 
 @Component({
@@ -12,7 +12,9 @@ import { HttpService } from 'src/app/services/http.service';
 export class DetailsComponent implements OnInit {
   private routeSub: Subscription = new Subscription;
   private gameSub: Subscription = new Subscription;
+  private gameTrailerSub: Subscription = new Subscription;
   public game: Game | undefined;
+  public gameTrailer!: GameTrailer;
  
 
   constructor(
@@ -23,6 +25,7 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     this.routeSub = this.activatedRoute.params.subscribe((params: Params) => {
         this.getOneGame(params['game-id']);
+        this.getGameTrailer(params['game-id']);
     });
   }
 
@@ -33,6 +36,15 @@ export class DetailsComponent implements OnInit {
         this.game = gameDetail;
         console.log(this.game)
       });
+  }
+
+  getGameTrailer(id: string): void{
+    this.gameTrailerSub = this.httpService
+    .getGameDetailsTrailer(id)
+    .subscribe((gameTrailer: GameTrailer) => {
+      this.gameTrailer = gameTrailer;
+      console.log(this.gameTrailer.results[0])
+    });
   }
 
 

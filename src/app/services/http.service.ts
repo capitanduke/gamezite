@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment as env } from 'src/environments/environment';
-import { APIResponse, Game } from '../models';
+import { APIResponse, Game, GameTrailer } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +30,11 @@ export class HttpService {
   getGameDetails(id: string): Observable<any>{
      return this.http.get(`${env.BASE_URL}/games/${id}`);
   }
+
+  getGameDetailsTrailer(id: string): Observable<any>{
+    return this.http.get(`${ env.BASE_URL }/games/${ id }/movies`);
+    
+ }
 
   /*getGameDetails(id: string): Observable<Game> {
     const gameInfoRequest = this.http.get(`${env.BASE_URL}/games/${id}`);

@@ -12,7 +12,10 @@ export interface Game {
     publishers: Array<Publishers>;
     ratings: Array<Rating>;
     screenshots: Array<Screenshots>;
-    trailers: Array<Trailer>;
+  }
+
+  export interface GameTrailer {
+    results: Array<Trailer>;
   }
   
   export interface APIResponse<T> {

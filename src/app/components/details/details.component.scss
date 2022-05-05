@@ -1,0 +1,28 @@
+.game{
+    display: grid;
+    grid-template-columns: auto 100% auto;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    &-trailer{
+        grid-column: 2 / 3; 
+    }
+
+    &-thumb-container{
+        grid-column: 2 / 3;
+        justify-self: center;
+        border: 5px solid red;
+    }
+
+    &-thumbnail{
+        max-width: 100%;
+    }
+
+    &-description{
+        grid-column: 2 / 3;
+        border: 5px solid green;
+    }
+
+    &-name{
+        color: #fff;
+    }
+}
