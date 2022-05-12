@@ -50,4 +50,5 @@ export interface Game {
     data: {
       max: string;
     };
+    preview: string;
   } 

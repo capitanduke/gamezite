@@ -15,12 +15,21 @@ export class DetailsComponent implements OnInit {
   private gameTrailerSub: Subscription = new Subscription;
   public game: Game | undefined;
   public gameTrailer!: GameTrailer;
- 
+  public indexTrailer: number = 0;
 
   constructor(
     private httpService: HttpService,
     private activatedRoute: ActivatedRoute
   ) { }
+
+  gaugeType = 'semi' as const;
+  gaugeLabel = 'Rating';
+  colorGauge = '#ffffff';
+  thresholdConfig = {
+    '0': { color: 'red' },
+    '40': { color: 'orange' },
+    '75.5': { color: 'green' },
+  };
 
   ngOnInit(): void {
     this.routeSub = this.activatedRoute.params.subscribe((params: Params) => {
@@ -43,8 +52,20 @@ export class DetailsComponent implements OnInit {
     .getGameDetailsTrailer(id)
     .subscribe((gameTrailer: GameTrailer) => {
       this.gameTrailer = gameTrailer;
-      console.log(this.gameTrailer.results[0])
+      console.log("trailers", this.gameTrailer.results)
     });
+  }
+
+  getColor(value: number): string {
+    if (value > 75) {
+      return '#5ee432';
+    } else if (value > 50) {
+      return '#fffa50';
+    } else if (value > 30) {
+      return '#f7aa38';
+    } else {
+      return '#ef4655';
+    }
   }
 
 

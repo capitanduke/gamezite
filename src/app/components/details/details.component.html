@@ -1,32 +1,45 @@
-<div class="game">
-  <ng-container *ngFor="let trailer of gameTrailer.results">
-    <div class="game-trailer">
-      <p>{{ trailer.data.max }}</p>
-      <vg-player>
-        <video #media [vgMedia]="$any(media)" id="singleVideo" preload="auto" controls>
-          <source src="{{ trailer.data.max }}" type="video/mp4">
-        </video>
-      </vg-player>
-    </div>
-  </ng-container>
-  <div class="game-thumb-container">
+<div class="details">
+  <div class="game-banner">
     <img
-      *ngIf="game?.background_image"
+      class="game-banner-img"
       src="{{ game?.background_image }}"
-      alt="thumbnail"
-      class="game-thumbnail"
+      alt="background image"
     />
-  <p *ngIf="!game?.background_image">No image</p>
   </div>
-  <div class="game-description">
-    <p class="game-name">{{ game?.name }}</p>
-    <!--<div class="game-platforms">
-      <img
-        *ngFor="let gamePlatform of game.parent_platforms"            
-        class="game-platform"
-        src="assets/images/platforms/{{ gamePlatform.platform.slug }}.svg"
-        alt="{{ gamePlatform.platform.slug }}"
-      />
-    </div>-->
+  <div class="game-content">
+    <div class="details-wrapper">
+      <div class="game-header">
+        <h1 class="game-header-title">{{ game?.name }}</h1>
+        <h2 class="game-header-release-date">
+          Release: 
+        </h2>
+        <p class="game-header-genres">
+          <!--<span *ngFor="let genre of game.genres; let last = last"
+          >{{ genre.name }}<span *ngIf="!last">, </span></span
+        >-->
+        </p>
+      </div>
+      <div class="game-gauge">
+        <ngx-gauge
+          [type]="gaugeType"
+          [value]="game!.metacritic"
+          [label]="gaugeLabel"
+          [thresholds]="thresholdConfig"
+          [max]="100"
+          [backgroundColor]="colorGauge"
+        >
+        </ngx-gauge>
+        <a
+          class="game-gauge-label"
+          target="_blank"
+          href="{{ game?.metacritic_url }}"
+          >Metacritic</a
+        >
+      </div>
+      <!--<app-game-tabs [game]="game"></app-game-tabs>-->
+    </div>
+  </div>
+  <div>
+    HEYYYYYYY
   </div>
 </div>
