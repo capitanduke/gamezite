@@ -43,7 +43,6 @@ export class DetailsComponent implements OnInit {
       .getGameDetails(id)
       .subscribe((gameDetail: Game) => {
         this.game = gameDetail;
-        console.log(this.game)
       });
   }
 
@@ -52,7 +51,6 @@ export class DetailsComponent implements OnInit {
     .getGameDetailsTrailer(id)
     .subscribe((gameTrailer: GameTrailer) => {
       this.gameTrailer = gameTrailer;
-      console.log("trailers", this.gameTrailer.results)
     });
   }
 

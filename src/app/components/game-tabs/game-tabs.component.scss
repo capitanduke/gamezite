@@ -1,0 +1,31 @@
+.game-content{
+    background-color: #000000;
+}
+
+.game-tabs{
+    display: flex;
+    justify-content: space-around;
+
+    &-box{
+        width: 100%;
+        padding: 2rem;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        border: 1px solid #f899eb;
+    }
+}
+
+.game-container{
+    height: 100vw;
+    background: #000000;
+
+    &-data {
+        color: green;
+    }
+}
+
+.active{
+    background-color: #f899eb77;
+}

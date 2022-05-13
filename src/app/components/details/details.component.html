@@ -5,19 +5,17 @@
       src="{{ game?.background_image }}"
       alt="background image"
     />
+    <div class="game-banner-overlay">
+      Multi-line <br/>text
+    </div>
   </div>
   <div class="game-content">
     <div class="details-wrapper">
       <div class="game-header">
         <h1 class="game-header-title">{{ game?.name }}</h1>
         <h2 class="game-header-release-date">
-          Release: 
+          Release: {{ game!.released | date}}
         </h2>
-        <p class="game-header-genres">
-          <!--<span *ngFor="let genre of game.genres; let last = last"
-          >{{ genre.name }}<span *ngIf="!last">, </span></span
-        >-->
-        </p>
       </div>
       <div class="game-gauge">
         <ngx-gauge
@@ -36,10 +34,7 @@
           >Metacritic</a
         >
       </div>
-      <!--<app-game-tabs [game]="game"></app-game-tabs>-->
     </div>
-  </div>
-  <div>
-    HEYYYYYYY
+    <app-game-tabs [game]="game" [gameTrailers]="gameTrailer"></app-game-tabs>
   </div>
 </div>
