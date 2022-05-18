@@ -55,6 +55,7 @@
         justify-content: space-around;
         flex-direction: column;
         justify-content: center;
+        min-width: 200px;
 
         &-title {
           font-size: 6vw;
@@ -62,6 +63,7 @@
           font-weight: 700;
           line-height: 3vw;
           white-space: nowrap;
+          letter-spacing: 2px;
         }
     
         &-release-date {

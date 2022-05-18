@@ -5,7 +5,8 @@ export interface Game {
     released: string;
     metacritic_url: string;
     website: string;
-    description: string;
+    description_raw: string;
+    developers: Array<Developers>;
     metacritic: number;
     genres: Array<Genre>;
     parent_platforms: Array<ParentPlatform>;
@@ -24,6 +25,10 @@ export interface Game {
   
   interface Genre {
     name: string;
+  }
+
+  interface Developers {
+    name: string
   }
   
   interface ParentPlatform {

@@ -33,8 +33,7 @@ export class HttpService {
 
   getGameDetailsTrailer(id: string): Observable<any>{
     return this.http.get(`${ env.BASE_URL }/games/${ id }/movies`);
-    
- }
+  }
 
   /*getGameDetails(id: string): Observable<Game> {
     const gameInfoRequest = this.http.get(`${env.BASE_URL}/games/${id}`);

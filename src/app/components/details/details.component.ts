@@ -28,7 +28,7 @@ export class DetailsComponent implements OnInit {
   thresholdConfig = {
     '0': { color: 'red' },
     '40': { color: 'orange' },
-    '75.5': { color: 'green' },
+    '75.5': { color: 'purple' },
   };
 
   ngOnInit(): void {
@@ -58,11 +58,11 @@ export class DetailsComponent implements OnInit {
     if (value > 75) {
       return '#5ee432';
     } else if (value > 50) {
-      return '#fffa50';
+      return '#5ee432';
     } else if (value > 30) {
-      return '#f7aa38';
+      return '#5ee432';
     } else {
-      return '#ef4655';
+      return '#5ee432';
     }
   }
 

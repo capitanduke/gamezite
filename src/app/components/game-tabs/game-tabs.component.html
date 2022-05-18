@@ -6,7 +6,44 @@
     <div class="game-container">
         <ng-container *ngIf="active">
             <div class="game-container-data">
-                DETAILS
+                <div class="game-container-title">name</div>
+                <div class="game-container-content">{{ game!.name }}</div>
+            </div>
+            <div class="game-container-data">
+                <div class="game-container-title">description</div>
+                <div class="game-container-content">{{ game!.description_raw }}</div>
+            </div>
+            <div class="game-container-data">
+                <div class="game-container-title">developers</div>
+                <div class="game-container-content">
+                    <ng-container *ngFor="let dev of game!.developers">
+                        <div>{{ dev.name }}</div>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="game-container-data">
+                <div class="game-container-title">Genres</div>
+                <div class="game-container-content">
+                    <ng-container *ngFor="let dev of game!.genres">
+                        <div>{{ dev.name }}</div>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="game-container-data">
+                <div class="game-container-title">platforms</div>
+                <div class="game-container-platforms">
+                        <img
+                            *ngFor="let gamePlatform of game!.parent_platforms"            
+                            class="game-container-image"
+                            src="assets/images/platforms/{{ gamePlatform.platform.slug }}.svg"
+                            alt="{{ gamePlatform.platform.slug }}"
+                        />
+                  </div>
+            </div>
+            <div class="game-container-data">
+                <div class="game-container-website">
+                    <a href="{{ game!.website }}" target="_blank">{{ game!.website }}</a>
+                </div>
             </div>
         </ng-container>
         <ng-container *ngIf="!active">
