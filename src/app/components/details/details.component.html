@@ -1,5 +1,15 @@
 <div class="details">
-  <div class="game-banner">
+  <div class="container-loading" *ngIf="!game">
+    <div class="loader">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+      <div class="bar4"></div>
+      <div class="bar5"></div>
+      <div class="bar6"></div>
+    </div>
+  </div>
+  <div class="game-banner" *ngIf="game">
     <div [ngStyle]="{'background-image': 'url(' + game?.background_image + ')'}" class="game-banner-img"></div>
     <!--<img
       class="game-banner-img"
@@ -8,7 +18,7 @@
     />-->
     <!--<div class="game-banner-overlay"></div>-->
   </div>
-  <div class="game-content">
+  <div class="game-content" *ngIf="game">
     <div class="details-wrapper">
       <div class="game-header">
         <h1 class="game-header-title">{{ game?.name }}</h1>
