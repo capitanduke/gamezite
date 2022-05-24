@@ -48,7 +48,23 @@
         </ng-container>
         <ng-container *ngIf="!active">
             <div class="game-container-data">
-                TRAILERS
+                <div class="game-container-videos">
+                    <ng-container *ngIf="gameTrailers!.results.length > 0">
+                        <video
+                        class="game-trailer"
+                        controls
+                        *ngFor="let trailer of gameTrailers!.results"
+                    >
+                        <source src="{{ trailer.data?.max }}" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                    </ng-container>
+                    <ng-container *ngIf="gameTrailers!.results.length === 0">
+                        <div class="game-container-noVideos">
+                            <h4>There is no trailer for this game</h4>
+                        </div>
+                    </ng-container>
+                </div>
             </div>
         </ng-container>
     </div>

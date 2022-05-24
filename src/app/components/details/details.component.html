@@ -1,11 +1,12 @@
 <div class="details">
   <div class="game-banner">
-    <img
+    <div [ngStyle]="{'background-image': 'url(' + game?.background_image + ')'}" class="game-banner-img"></div>
+    <!--<img
       class="game-banner-img"
       src="{{ game?.background_image }}"
       alt="background image"
-    />
-    <div class="game-banner-overlay"></div>
+    />-->
+    <!--<div class="game-banner-overlay"></div>-->
   </div>
   <div class="game-content">
     <div class="details-wrapper">

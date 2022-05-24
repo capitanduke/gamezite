@@ -14,6 +14,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   public games: Array<Game> | undefined;
   private routeSub: Subscription = new Subscription;
   private gameSub: Subscription = new Subscription;
+  private gameListNext: string = "";
+  private gameListPrev: string = "";
+  public activeNextButton: boolean = false;
+  public activePrevButton: boolean = false;
+
 
   constructor(    
     private httpService: HttpService,
@@ -30,17 +35,48 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
   }
 
-  searchGames(sort: string, search?: string): void {
+  searchGames(sort: string, search?: string, next?: string, prev?: string): void {
     this.gameSub = this.httpService
-      .getGameList(sort, search)
+      .getGameList(sort, search, next, prev)
       .subscribe((gameList: APIResponse<Game>) => {
-        this.games = gameList.results;
-        console.log(this.games);
+          this.games = gameList.results;
+          this.gameListNext = gameList.next.slice(85, 92);
+          if(gameList.previous !== null){
+            this.gameListPrev = gameList.previous.slice(85, 92);
+          }
       });
   }
 
+  animationLoop(){
+    setTimeout(() =>{
+      this.activeNextButton = false;
+      this.activePrevButton = false;
+    },700);
+  }
+
+  goNextPage(){
+    this.activeNextButton = true;
+    this.searchGames('metacrit', "", this.gameListNext);
+    this.gameSub = this.httpService
+      .getGameList('metacrit', "", this.gameListNext)
+      .subscribe((gameList: APIResponse<Game>) => {
+        this.games = gameList.results;
+    });
+    this.animationLoop()
+  }
+
+  goPrevPage(){
+    this.activePrevButton = true;
+    this.searchGames('metacrit', "", "", this.gameListPrev);
+    this.gameSub = this.httpService
+      .getGameList('metacrit', "", "", this.gameListPrev)
+      .subscribe((gameList: APIResponse<Game>) => {
+        this.games = gameList.results;
+    });
+    this.animationLoop()
+  }
+
   openGameDetails(id: number): void {
-    console.log(typeof id)
     this.router.navigate(['details', id]);
   }
 

@@ -1,4 +1,4 @@
-  <div class="filters">
+  <!--<div class="filters">
     <mat-form-field>
       <mat-label>Sort</mat-label>
       <mat-select
@@ -15,7 +15,7 @@
         <mat-option value="metacritic">Metacritic</mat-option>
       </mat-select>
     </mat-form-field>
-  </div>
+  </div>-->
 
   <div class="games">  
     <ng-container *ngFor="let game of games">
@@ -42,4 +42,8 @@
         </div>
       </div>
     </ng-container>
+    <div class="games-navigation">
+      <button class="games-navigation-button" [class.animate]="activePrevButton" (click)="goPrevPage()">PREV</button>
+      <button class="games-navigation-button" [class.animate]="activeNextButton" (click)="goNextPage()">NEXT</button>
+    </div>
   </div>

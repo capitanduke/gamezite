@@ -2,9 +2,9 @@
   &-container {
     width: 100%;
     height: 60px;
-    background-color: #323a45;
+    background-color: #6c1560;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     position: fixed;
     top: 0;
@@ -12,47 +12,148 @@
     z-index: 4;
   }
 
+  &-logo{
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 2rem;
+  }
+
   &-form {
+    display: flex;
+    justify-content: center;
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 90%;
   }
 
   &-input {
     margin-left: 10px;
     padding: 10px;
     width: 300px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-bottom: 2px solid #ffffff !important;
+    background-color: transparent;
     outline: none;
     border: none;
+
+    &::placeholder {
+      color: #ffffff;
+      opacity: 1; /* Firefox */
+    }
+    
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+     color: #ffffff;
+    }
+    
+    &::-ms-input-placeholder { /* Microsoft Edge */
+     color: #ffffff;
+    }
   }
 
   &-button {
     border: none;
     outline: none;
-    background: #3f51b5;
+    background: transparent;
     padding: 10px;
-    border-left: 1px solid rgba(0, 0, 0, 0.3);
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    color: #fff;
+    border-left: 2px solid #ffffff !important;
+    border-bottom: 2px solid #ffffff !important;
+    color: #ffffff;
     font-weight: 700;
     transition-duration: 0.3s;
     cursor: pointer;
+  }
 
-    &:hover {
-      color: #3f51b5;
-      background-color: #fff;
-      border: 1px solid #3f51b5;
-    }
+  &-ing{
+    cursor: pointer;
   }
 }
 
-.logo {
-  margin-left: 10px;
-  color: #fff;
-  font-weight: 700;
-  cursor: pointer;
+
+/*MODAL*/
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 5; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  -webkit-animation-name: fadeIn; /* Fade in the background */
+  -webkit-animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+}
+
+/* Modal Content */
+.modal-content {
+  position: fixed;
+  bottom: 0;
+  background-color: #6c1560;
+  width: 100%;
+  height: 100%;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: slideIn;
+  animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
   text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: end;
+  padding: 20px 2%;
+  background-color: #6c1560;
+  color: white;
+}
+
+.modal-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  from {top: -300px; opacity: 0} 
+  to {top: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
 }

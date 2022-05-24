@@ -14,13 +14,29 @@ export class HttpService {
 
   getGameList(
     ordering: string,
-    search?: string
+    search?: string,
+    nextPage?: string,
+    prevPage?: string
   ): Observable<APIResponse<Game>> {
     let params = new HttpParams().set('ordering', ordering);
+
 
     if (search) {
       params = new HttpParams().set('ordering', ordering).set('search', search);
     }
+
+    if(nextPage){
+      return this.http.get<APIResponse<Game>>(`${env.BASE_URL}/games?${nextPage}`, {
+        params: params,
+      });
+    }
+
+    if(prevPage){
+      return this.http.get<APIResponse<Game>>(`${env.BASE_URL}/games?${prevPage}`, {
+        params: params,
+      });
+    }
+
 
     return this.http.get<APIResponse<Game>>(`${env.BASE_URL}/games`, {
       params: params,

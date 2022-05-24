@@ -23,9 +23,13 @@
         overflow: hidden;
     
         &-img{
-            margin-top: 60px;
-            width: 100%;
-            height: auto;
+          margin-top: 60px;
+          width: 100%;
+          min-height: 600px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center top;
+
         }
 
         &-overlay{
