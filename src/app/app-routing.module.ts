@@ -4,6 +4,10 @@ import { DetailsComponent } from './components/details/details.component';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [{
+  path: 'page/:page',
+  component: HomeComponent,
+},
+{
   path: '',
   component: HomeComponent,
 },
@@ -12,7 +16,7 @@ const routes: Routes = [{
   component: HomeComponent,
 },
 {
-  path: 'details/:game-id',
+  path: 'details/:game-id/:page',
   component: DetailsComponent,
 },
 ];

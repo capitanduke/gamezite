@@ -16,6 +16,7 @@ import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
 import { DetailsComponent } from './components/details/details.component';
 import { NgxGaugeModule } from 'ngx-gauge';
 import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
     SerachBarComponent,
     HomeComponent,
     DetailsComponent,
-    GameTabsComponent
+    GameTabsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

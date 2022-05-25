@@ -21,7 +21,7 @@ export class SerachBarComponent implements OnInit {
     form.reset();
   }
 
-  test(){
+  open(){
     this.showing = !this.showing;
   }
 

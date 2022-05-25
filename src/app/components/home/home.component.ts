@@ -29,6 +29,11 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.routeSub = this.activatedRoute.params.subscribe((params: Params) => {
       if (params['game-search']) {
         this.searchGames('metacrit', params['game-search']);
+      } else if (params['page']) {
+        console.log(params['page']);
+        //this.searchGames('metacrit');
+        this.goNextPage(`page=${params['page']}`);
+        //this.gameListNext = params['page'];
       } else {
         this.searchGames('metacrit');
       }
@@ -54,7 +59,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     },700);
   }
 
-  goNextPage(){
+  goNextPage(page?: string){
+    if(page){
+      this.gameListNext = page;
+    }
     this.activeNextButton = true;
     this.searchGames('metacrit', "", this.gameListNext);
     this.gameSub = this.httpService
@@ -77,7 +85,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   openGameDetails(id: number): void {
-    this.router.navigate(['details', id]);
+    console.log(this.gameListNext.slice(5, 7))
+    const pageNumber = parseInt(this.gameListNext.slice(5, 7), 10) - 1;
+    this.router.navigate(['details', id, pageNumber]);
   }
 
   ngOnDestroy(): void {

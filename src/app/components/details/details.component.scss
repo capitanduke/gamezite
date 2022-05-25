@@ -29,7 +29,18 @@
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center top;
+        }
 
+        &-back{
+          position: absolute;
+          top: 5rem;
+          left: 1rem;
+          cursor: pointer;
+
+          &-icon{
+            width: 20%;
+            height: 20%;
+          }
         }
 
         &-overlay{
@@ -59,23 +70,16 @@
         justify-content: space-around;
         flex-direction: column;
         justify-content: center;
-        min-width: 200px;
+        width: 50%;
 
         &-title {
           font-size: 6vw;
           color: #fff;
           font-weight: 700;
-          line-height: 3vw;
-          white-space: nowrap;
+          line-height: 4vw;
           letter-spacing: 2px;
         }
-    
-        &-release-date {
-          font-size: 1.5vw;
-          color: #fff;
-          font-weight: 300;
-        }
-    
+        
         &-genres {
           color: #fff;
           font-weight: 700;

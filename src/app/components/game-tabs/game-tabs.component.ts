@@ -19,8 +19,6 @@ export class GameTabsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.game)
-    console.log(this.gameTrailers)
   }
 
   gettingInfo(){

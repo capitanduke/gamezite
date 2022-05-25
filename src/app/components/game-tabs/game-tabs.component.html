@@ -10,6 +10,10 @@
                 <div class="game-container-content">{{ game!.name }}</div>
             </div>
             <div class="game-container-data">
+                <div class="game-container-title">Release</div>
+                <div class="game-container-content">{{ game!.released | date}}</div>
+            </div>
+            <div class="game-container-data">
                 <div class="game-container-title">description</div>
                 <div class="game-container-content">{{ game!.description_raw }}</div>
             </div>

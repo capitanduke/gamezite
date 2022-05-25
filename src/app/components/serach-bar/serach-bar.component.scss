@@ -139,13 +139,13 @@
 
 /* Add Animation */
 @-webkit-keyframes slideIn {
-  from {top: -300px; opacity: 0} 
-  to {top: 0; opacity: 1}
+  from {top: -300px; opacity: 1} 
+  to {bottom: 0; opacity: 1}
 }
 
 @keyframes slideIn {
-  from {top: -300px; opacity: 0}
-  to {top: 0; opacity: 1}
+  from {top: -300px; opacity: 1}
+  to {bottom: 0; opacity: 1}
 }
 
 @-webkit-keyframes fadeIn {

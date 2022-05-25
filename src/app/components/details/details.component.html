@@ -11,6 +11,13 @@
   </div>
   <div class="game-banner" *ngIf="game">
     <div [ngStyle]="{'background-image': 'url(' + game?.background_image + ')'}" class="game-banner-img"></div>
+    <div class="game-banner-back" (click)="goBack()">
+      <img
+            class="game-banner-back-icon"
+            src="assets/images/platforms/back.svg"
+            alt="Search Gamezite"
+      />
+    </div>
     <!--<img
       class="game-banner-img"
       src="{{ game?.background_image }}"
@@ -22,9 +29,6 @@
     <div class="details-wrapper">
       <div class="game-header">
         <h1 class="game-header-title">{{ game?.name }}</h1>
-        <h2 class="game-header-release-date">
-          Release: {{ game!.released | date}}
-        </h2>
       </div>
       <div class="game-gauge">
         <ngx-gauge

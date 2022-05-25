@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { APIResponse, Game, GameTrailer } from 'src/app/models';
 import { HttpService } from 'src/app/services/http.service';
@@ -16,10 +16,12 @@ export class DetailsComponent implements OnInit {
   public game: Game | undefined;
   public gameTrailer!: GameTrailer;
   public indexTrailer: number = 0;
+  private page: string | undefined;
 
   constructor(
     private httpService: HttpService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
   ) { }
 
   gaugeType = 'semi' as const;
@@ -35,7 +37,12 @@ export class DetailsComponent implements OnInit {
     this.routeSub = this.activatedRoute.params.subscribe((params: Params) => {
         this.getOneGame(params['game-id']);
         this.getGameTrailer(params['game-id']);
+        this.page = params['page'];
     });
+  }
+
+  goBack(){
+    this.router.navigate(['page', this.page]);
   }
 
   getOneGame(id: string): void {

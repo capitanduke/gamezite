@@ -6,7 +6,7 @@
             <button class="search-button">search</button>
         </form>
     </div>-->
-    <div class="search-ing" (click)="test()">
+    <div class="search-ing" (click)="open()">
         <img
             class="game-platform"
             src="assets/images/platforms/suche.svg"
@@ -20,7 +20,7 @@
     <!-- Modal content -->
     <div class="modal-content">
       <div class="modal-header">
-        <span class="close" (click)="test()">&times;</span>
+        <span class="close" (click)="open()">&times;</span>
       </div>
       <div class="modal-body">
         <form class="search-form" #form="ngForm" (ngSubmit)="onSubmit(form)">

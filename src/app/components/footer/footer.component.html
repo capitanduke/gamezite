@@ -1,0 +1,36 @@
+<div class="footer-container">
+    <div class="footer-description" (click)="open()">
+        HELLO (CLICK ME!)
+    </div>
+</div>
+
+<!-- The Modal -->
+<div [style.display]="showing ? 'block' : 'none'" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" (click)="open()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body-description">
+            Hello, I´m Raul Rincones / Frontend Developer
+        </div>
+        <div class="modal-body-icons-container">
+            <div>
+                <a href="https://github.com/capitanduke" target="_blank"> <img
+                    class="modal-body-icon-github"
+                    src="assets/images/platforms/github.svg"
+                    alt="Search Gamezite"
+                /> </a>
+            </div>
+            <div>
+                <a href="https://www.linkedin.com/in/raulrinconesizaguirre/" target="_blank"> <img
+                    class="modal-body-icon-linkedin"
+                    src="assets/images/platforms/linkedin.svg"
+                    alt="Search Gamezite"
+                /> </a>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
